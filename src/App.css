@@ -43,6 +43,7 @@ a:hover{
   margin: 0px;
   background-color: rgb(0, 21, 41);
 }
+/* navbar logo styles */
 
 .logo-container{
   background-color: #001529;
@@ -57,6 +58,8 @@ a:hover{
 .logo a{
  color: white;
 }
+
+/* navbar menus */
 .menu-control-container{
   display: none !important;
   position: absolute !important;

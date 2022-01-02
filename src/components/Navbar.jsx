@@ -17,12 +17,12 @@ function Navbar() {
 
     useEffect(() => {
         if (screenSize <= 800) {
-          setActiveMenu(false);
+            setActiveMenu(false);
         } else {
-          setActiveMenu(true);
+            setActiveMenu(true);
         }
-      }, [screenSize]);
-      
+    }, [screenSize]);
+
     return (
         <div className="nav-container">
             <div className="logo-container">
@@ -31,21 +31,26 @@ function Navbar() {
                     <Link to='/'>Cryptosphere</Link>
                 </Typography.Title>
                 {/* <Button className="menu-control-container"></Button> */}
+                <Button className="menu-control-container" onClick={() => setActiveMenu(!activeMenu)}>
+                    <MenuOutlined />
+                </Button>
             </div>
-            <Menu theme='dark'>
-                <Menu.Item icon={<HomeOutlined />}>
-                    <Link to="/">Home</Link>
-                </Menu.Item>
-                <Menu.Item icon={<FundOutlined />}>
-                    <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-                </Menu.Item>
-                <Menu.Item icon={<MoneyCollectOutlined />}>
-                    <Link to="/exchanges">Exchanges</Link>
-                </Menu.Item>
-                <Menu.Item icon={<BulbOutlined />}>
-                    <Link to="/news">News</Link>
-                </Menu.Item>
-            </Menu>
+            {activeMenu && (
+                <Menu theme='dark'>
+                    <Menu.Item icon={<HomeOutlined />}>
+                        <Link to="/">Home</Link>
+                    </Menu.Item>
+                    <Menu.Item icon={<FundOutlined />}>
+                        <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+                    </Menu.Item>
+                    <Menu.Item icon={<MoneyCollectOutlined />}>
+                        <Link to="/exchanges">Exchanges</Link>
+                    </Menu.Item>
+                    <Menu.Item icon={<BulbOutlined />}>
+                        <Link to="/news">News</Link>
+                    </Menu.Item>
+                </Menu>
+            )}
         </div>
     )
 }

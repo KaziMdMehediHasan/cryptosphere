@@ -21,10 +21,18 @@ export const cryptoApi = {
     getCryptoDetails: builder.query({
       query: (coinId) => createRequest(`/coin/${coinId}`),
     }),
+    getCryptoHistory: builder.query({
+      query: ({ coindId, timeperiod }) =>
+        createRequest(`/coin/${coindId}/history/${timeperiod}`),
+    }),
   }),
 };
 
-export const { useGetCryptoQuery, useGetCryptoDetailsQuery } = cryptoApi;
+export const {
+  useGetCryptoQuery,
+  useGetCryptoDetailsQuery,
+  useCryptoHistoryQuery,
+} = cryptoApi;
 
 // var options = {
 //   method: "GET",

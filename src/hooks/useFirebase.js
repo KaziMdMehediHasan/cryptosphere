@@ -6,31 +6,43 @@ import {
   signOut,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import initializeAuthentication from "../firebase/firebase.init";
 
 initializeAuthentication();
 const googleProvider = new GoogleAuthProvider();
+toast.configure();
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [error, setError] = useState("");
   const auth = getAuth();
 
+  // Showing notification after logout
+
+  const notify = () => {
+    toast.success("Logout Successfull!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   const signInUsingGoogle = () => {
-    // signInWithPopup(auth,googleProvider)
-    // .then(result=>{
-    //   setUser(result.user)
-    // })
     return signInWithPopup(auth, googleProvider);
   };
 
   const logOut = () => {
     signOut(auth).then(() => {
+      notify();
       setUser({});
     });
   };
 
   useEffect(() => {
-    // i have to clear this topic must
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -43,7 +55,6 @@ const useFirebase = () => {
 
   return {
     user,
-    error,
     signInUsingGoogle,
     logOut,
   };

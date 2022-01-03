@@ -80,7 +80,7 @@ a:hover {
   background-color: rgba(60, 200, 60, 0.9);
   display: block;
   margin: 21vmax auto 0;
-  padding: 1rem 1.5rem;
+  padding: 1.1rem 1.5rem;
   border: none;
   outline: none;
   border-radius: 6px;
@@ -91,14 +91,19 @@ a:hover {
   display: block;
   margin: 21vmax auto 0;
   background-color: rgba(200, 60, 60, 0.9);
-  padding: 1rem 1.5rem;
+  padding: 1.1rem 1.5rem;
   border: none;
   outline: none;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
 }
-
+.login_btn:hover {
+  background-color: rgba(60, 200, 60, 0.6);
+}
+.logout_btn:hover {
+  background-color: rgba(200, 60, 60, 0.7);
+}
 @media screen and (max-width: 1300px) {
   .main {
     margin-left: 50px;

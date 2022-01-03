@@ -15,6 +15,7 @@ const googleProvider = new GoogleAuthProvider();
 toast.configure();
 const useFirebase = () => {
   const [user, setUser] = useState({});
+  console.log(user);
   const auth = getAuth();
 
   // Showing notification after logout

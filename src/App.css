@@ -75,7 +75,20 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
-
+.user_avatar {
+  position: fixed;
+  right: 2%;
+  top: 4%;
+  cursor: pointer;
+}
+.user_img {
+  width: 60px;
+  height: 60px;
+  border: 1px solid hidden;
+  border-radius: 50%;
+  width: 100%;
+  overflow: hidden;
+}
 .login_btn {
   background-color: rgba(60, 200, 60, 0.9);
   display: block;
@@ -104,6 +117,7 @@ a:hover {
 .logout_btn:hover {
   background-color: rgba(200, 60, 60, 0.7);
 }
+
 @media screen and (max-width: 1300px) {
   .main {
     margin-left: 50px;
@@ -128,6 +142,19 @@ a:hover {
   }
   .login_btn {
     margin: 1rem auto;
+  }
+  .user_avatar {
+    position: fixed;
+    right: 2%;
+    top: 17%;
+  }
+  .user_img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid hidden;
+    border-radius: 50%;
+    width: 100%;
+    overflow: hidden;
   }
   .app {
     flex-direction: column;

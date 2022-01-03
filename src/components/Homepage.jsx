@@ -6,6 +6,7 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import Cryptocurrencies from "./Cryptocurrencies";
 import Loader from "./Loader";
 import News from "./News";
+import UserAvatar from "./UserAvatar";
 
 const { Title } = Typography;
 
@@ -70,6 +71,7 @@ const Homepage = () => {
         </Title>
       </div>
       <News simplified />
+      <UserAvatar />
     </>
   );
 };

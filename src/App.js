@@ -28,21 +28,21 @@ const App = () => {
                 <Route exact path="/">
                   <Homepage />
                 </Route>
-                <Route exact path="/login">
+                <Route path="/login">
                   <Login />
                 </Route>
                 <Route exact path="/exchanges">
                   <Exchanges />
                 </Route>
-                <Route exact path="/cryptocurrencies">
+                <PrivateRoute exact path="/cryptocurrencies">
                   <Cryptocurrencies />
-                </Route>
+                </PrivateRoute>
                 <PrivateRoute path="/crypto/:coinId">
                   <CryptoDetails />
                 </PrivateRoute>
-                <Route exact path="/news">
+                <PrivateRoute exact path="/news">
                   <News />
-                </Route>
+                </PrivateRoute>
               </Switch>
             </div>
           </Layout>

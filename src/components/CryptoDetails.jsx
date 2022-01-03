@@ -14,6 +14,7 @@ import HTMLReactParser from "html-react-parser";
 import millify from "millify";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
@@ -32,6 +33,7 @@ const CryptoDetails = () => {
     coinId,
     timeperiod,
   });
+  const { user } = useAuth();
   const cryptoDetails = data?.data?.coin;
 
   if (isFetching) return <Loader />;

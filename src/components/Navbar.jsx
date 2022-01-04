@@ -63,6 +63,7 @@ const Navbar = () => {
             <Menu.Item icon={<BulbOutlined />}>
               <Link to="/news">News</Link>
             </Menu.Item>
+            {/* sakawat start */}
             {user.email ? (
               <button className="logout_btn" onClick={logOut}>
                 Logout
@@ -72,6 +73,7 @@ const Navbar = () => {
                 <button className="login_btn">Login</button>
               </Link>
             )}
+            {/* sakawat end */}
           </Menu>
         </>
       )}

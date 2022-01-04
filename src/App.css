@@ -75,6 +75,8 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
+
+/* Sakawat start*/
 .user_avatar {
   position: fixed;
   right: 2%;
@@ -117,7 +119,7 @@ a:hover {
 .logout_btn:hover {
   background-color: rgba(200, 60, 60, 0.7);
 }
-
+/*  sakawat end*/
 @media screen and (max-width: 1300px) {
   .main {
     margin-left: 50px;
@@ -137,6 +139,8 @@ a:hover {
 }
 
 @media screen and (max-width: 800px) {
+  /* sakawat start */
+
   .logout_btn {
     margin: 1rem auto;
   }
@@ -156,6 +160,8 @@ a:hover {
     width: 100%;
     overflow: hidden;
   }
+  /* sakawat end */
+
   .app {
     flex-direction: column;
     overflow: hidden;

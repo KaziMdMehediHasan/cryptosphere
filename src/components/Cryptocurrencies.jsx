@@ -12,6 +12,7 @@ import axios from 'axios';
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
+
   const [cryptos, setCryptos] = useState();
   const [searchTerm, setSearchTerm] = useState('');
   const { user, notify } = useAuth();
@@ -24,7 +25,7 @@ const Cryptocurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
-    // sakawat starts here
+    // custom api request
     const addToBookmarkHandler = (currency) => {
       const newCrypto = { ...currency };
       newCrypto.email = user?.email;
@@ -45,7 +46,7 @@ const Cryptocurrencies = ({ simplified }) => {
           }
         );
     };
-    // sakawat ends
+    // custom api request end
 
   if (isFetching) return <Loader />;
 

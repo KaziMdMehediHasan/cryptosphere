@@ -93,7 +93,7 @@ const Cryptocurrencies = ({ simplified }) => {
             >
               <button
                 style={{
-                  backgroundColor: "green",
+                  backgroundColor: "#5f8366",
                   color: "#fff",
                   padding: "0.4rem 0.7rem",
                   margin: "1rem",

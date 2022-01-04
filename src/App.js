@@ -6,11 +6,11 @@ import AuthProvider from "./AuthProvider/AuthProvider";
 import {
   Cryptocurrencies,
   CryptoDetails,
-  Exchanges,
   Homepage,
   Navbar,
   News,
 } from "./components";
+import Bookmarks from "./components/Bookmarks";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -31,8 +31,8 @@ const App = () => {
                 <Route path="/login">
                   <Login />
                 </Route>
-                <Route exact path="/exchanges">
-                  <Exchanges />
+                <Route exact path="/bookmarks">
+                  <Bookmarks />
                 </Route>
                 <PrivateRoute exact path="/cryptocurrencies">
                   <Cryptocurrencies />
@@ -57,7 +57,7 @@ const App = () => {
             </Typography.Title>
             <Space>
               <Link to="/">Home</Link>
-              <Link to="/exchanges">Exchanges</Link>
+              <Link to="/bookmarks">Bookmarks</Link>
               <Link to="/news">News</Link>
             </Space>
           </div>

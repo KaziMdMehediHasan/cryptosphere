@@ -1,24 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import millify from 'millify';
-import { Link } from 'react-router-dom';
-import { Card, Row, Col, Input } from 'antd';
-
-import { useGetCryptosQuery } from '../services/cryptoApi';
-import Loader from './Loader';
+import { Card, Col, Input, Row } from "antd";
+import axios from "axios";
+import millify from "millify";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { useGetCryptosQuery } from "../services/cryptoApi";
+import Loader from "./Loader";
 
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const { user } = useAuth();
 
   useEffect(() => {
     setCryptos(cryptosList?.data?.coins);
 
-    const filteredData = cryptosList?.data?.coins.filter((item) => item.name.toLowerCase().includes(searchTerm));
+    const filteredData = cryptosList?.data?.coins.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm)
+    );
 
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
+
+  //  sakawat starts
+  const addToBookmarkHandler = (currency) => {
+    const newCrypto = { ...currency };
+    newCrypto.email = user?.email;
+    console.log(newCrypto);
+    axios.post("http://localhost:5000/bookmarks/addCrypto", newCrypto).then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+  // sakawat ends
 
   if (isFetching) return <Loader />;
 
@@ -41,7 +61,6 @@ const Cryptocurrencies = ({ simplified }) => {
             className="crypto-card"
             key={currency.uuid}
           >
-
             {/* Note: Change currency.id to currency.uuid  */}
             <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}>
               <Card
@@ -54,6 +73,22 @@ const Cryptocurrencies = ({ simplified }) => {
                 <p>Daily Change: {currency.change}%</p>
               </Card>
             </Link>
+            {/* sakawat starts */}
+            <button
+              style={{
+                backgroundColor: "green",
+                color: "#fff",
+                padding: "0.4rem 1rem",
+                margin: "1rem",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+              onClick={() => addToBookmarkHandler(currency)}
+            >
+              add to bookmark
+            </button>
+            {/* sakawat ends */}
           </Col>
         ))}
       </Row>

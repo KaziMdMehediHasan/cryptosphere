@@ -3,10 +3,13 @@ import axios from "axios";
 import millify from "millify";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../hooks/useAuth";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Loader from "./Loader";
 
+toast.configure();
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
@@ -25,18 +28,36 @@ const Cryptocurrencies = ({ simplified }) => {
   }, [cryptosList, searchTerm]);
 
   //  sakawat starts
+  const notify = () => {
+    toast.info("Bookmark Added", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   const addToBookmarkHandler = (currency) => {
     const newCrypto = { ...currency };
     newCrypto.email = user?.email;
     console.log(newCrypto);
-    axios.post("http://localhost:5000/bookmarks/addCrypto", newCrypto).then(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    axios
+      .post(
+        "https://shielded-headland-90751.herokuapp.com/bookmarks/addCrypto",
+        newCrypto
+      )
+      .then(
+        (res) => {
+          if (res.data.insertedId) {
+            notify();
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   };
   // sakawat ends
 

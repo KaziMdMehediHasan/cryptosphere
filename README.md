@@ -1,4 +1,6 @@
-# Cryptosphere Create With React Js, Redux-Toolkit, Firebase Authentication And rapidApi.
+# Cryptosphere: Explore the world of crypto currencies (Full Stack application)
+
+## Built with React Js,NodeJS, ExpressJS, MongoDB Redux-Toolkit, Firebase Authentication, Ant Design And RapidApi.
 
 Check Out the live site [Click](https://cryptosphere29.netlify.app/).
 

@@ -17,13 +17,7 @@ const Login = () => {
   };
   return (
     <div
-      style={{
-        width: "100vw",
-        height: "83.5vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      className="login-container"
     >
     {/* image div */}
     <div>

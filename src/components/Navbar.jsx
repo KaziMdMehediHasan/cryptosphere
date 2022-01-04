@@ -35,17 +35,17 @@ const Navbar = () => {
         <Button className="menu-control-container" onClick={() => setActiveMenu(!activeMenu)}><MenuOutlined /></Button>
       </div>
       {activeMenu && (
-      <Menu theme="dark">
-        <Menu.Item icon={<HomeOutlined />}>
+      <Menu className="custom-menu-theme" theme="dark">
+        <Menu.Item className="custom-menu-item" icon={<HomeOutlined />}>
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item icon={<FundOutlined />}>
+        <Menu.Item className="custom-menu-item" icon={<FundOutlined />}>
           <Link to="/cryptocurrencies">Cryptocurrencies</Link>
         </Menu.Item>
-        <Menu.Item icon={<MoneyCollectOutlined />}>
+        <Menu.Item className="custom-menu-item" icon={<MoneyCollectOutlined />}>
           <Link to="/exchanges">Exchanges</Link>
         </Menu.Item>
-        <Menu.Item icon={<BulbOutlined />}>
+        <Menu.Item className="custom-menu-item" icon={<BulbOutlined />}>
           <Link to="/news">News</Link>
         </Menu.Item>
       </Menu>

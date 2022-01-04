@@ -6,6 +6,8 @@
    --pink: #0071bd;
    --light-blue: #e6f7ff;
    --border: #d9d9d9;
+   --dark: rgb(31, 31, 31);
+   --red:  #5f8366;
 }
 
 * {
@@ -25,14 +27,13 @@ a:hover{
 
 .navbar{
     flex: 0.2;
-    background-color: rgb(0, 21, 41);
-    /* background-color: gray; */
+    /* background-color: rgb(0, 21, 41); */
+    background-color: var(--red);
 }
 
 .main{
     flex: 1;
     width: 100%;
-    
 }
 .routes{
     padding: 20px;
@@ -43,13 +44,14 @@ a:hover{
     margin: 10px;
     height: 100vh;
     margin: 0px;
-    background-color: rgb(0, 21, 41);
-    /* background-color: gray; */
+    /* background-color: rgb(0, 21, 41); */
+    background-color: var(--red);
 }
 
+/* Navbar area styles */
 .logo-container{
-    background-color: #001529;
-    /* background-color: gray; */
+    /* background-color: #001529; */
+    background-color:  var(--red);
     display: flex;
     padding: 20px;
     align-items: center;
@@ -59,7 +61,13 @@ a:hover{
     margin:0 0 0 15px;
 }
 .logo a{
-   color: white;
+   color: white !important;
+}
+.custom-menu-theme{
+    background-color: var(--red) !important;
+}
+.custom-menu-item{
+    background-color: var(--red) !important;
 }
 .menu-control-container{
     display: none !important;
@@ -70,6 +78,8 @@ a:hover{
     background-color: var(--bgSecondary) !important;
     border: none !important;
 }
+
+/* end of navbar menu styles */
 
 .loader{
     height: 81vh;
@@ -374,7 +384,8 @@ width: 70%;
 }
 
 .footer {
-    background-color: #001529;
+    /* background-color: #001529; */
+    background-color: var(--red);
     display: flex;
     flex-direction: column;
     padding: 20px;

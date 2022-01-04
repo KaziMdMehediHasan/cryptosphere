@@ -85,28 +85,29 @@ const Cryptocurrencies = ({ simplified }) => {
                 <p>Daily Change: {currency.change}%</p>
               </Card>
             </Link>
-            {/* sakawat starts */}
+
+            {user?.email && 
             <div
+            style={{
+              textAlign: "center",
+            }}
+          >
+
+            <button
               style={{
-                textAlign: "center",
+                backgroundColor: "#5f8366",
+                color: "#fff",
+                padding: "0.4rem 0.7rem",
+                margin: "1rem",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
               }}
+              onClick={() => addToBookmarkHandler(currency)}
             >
-              <button
-                style={{
-                  backgroundColor: "#5f8366",
-                  color: "#fff",
-                  padding: "0.4rem 0.7rem",
-                  margin: "1rem",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                }}
-                onClick={() => addToBookmarkHandler(currency)}
-              >
-                Add to bookmark
-              </button>
-            </div>
-            {/* sakawat ends */}
+              Add to bookmark
+            </button>
+          </div>}
           </Col>
         ))}
       </Row>

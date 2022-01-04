@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
-import { Exchanges, Homepage, News, Cryptocurrencies, CryptoDetails, Navbar } from './components';
+import {Bookmarks, Homepage, News, Cryptocurrencies, CryptoDetails, Navbar } from './components';
 import './App.css';
 import AuthProvider from './AuthProvider/AuthProvider';
 import PrivateRoute from './components/PrivateRoute';
@@ -24,9 +24,9 @@ const App = () => (
             <Route path="/login">
                 <Login />
             </Route>
-            <Route exact path="/exchanges">
-              <Exchanges />
-            </Route>
+            <PrivateRoute exact path="/bookmarks">
+              <Bookmarks/>
+            </PrivateRoute>
             <PrivateRoute exact path="/cryptocurrencies">
               <Cryptocurrencies />
             </PrivateRoute>
@@ -40,15 +40,20 @@ const App = () => (
         </div>
       </Layout>
       <div className="footer">
-        <Typography.Title level={5} style={{ color: 'black', textAlign: 'center' }}>Copyright © 2022 
-          <Link style={{color: 'white'}} to="/">
+        <Typography.Title 
+        level={5} 
+        style={{ color: 'black', textAlign: 'center' }}>Copyright © 2022 
+          <Link 
+          style={{color: 'white'}} 
+          to="/">
             <span> Cryptosphere Inc.</span>
-          </Link> <br />
+          </Link> 
+          <br />
           All Rights Reserved.
         </Typography.Title>
         <Space>
           <Link style={{ color: 'white'}} to="/">Home</Link>
-          <Link style={{ color: 'white'}}to="/exchanges">Exchanges</Link>
+          <Link style={{ color: 'white'}}to="/bookmarks">Bookmarks</Link>
           <Link style={{ color: 'white'}}to="/news">News</Link>
         </Space>
       </div>

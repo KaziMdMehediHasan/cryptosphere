@@ -45,7 +45,7 @@ const Navbar = () => {
           <Link to="/cryptocurrencies">Cryptocurrencies</Link>
         </Menu.Item>
         <Menu.Item className="custom-menu-item" icon={<MoneyCollectOutlined />}>
-          <Link to="/exchanges">Exchanges</Link>
+          <Link to="/bookmarks">Bookmarks</Link>
         </Menu.Item>
         <Menu.Item className="custom-menu-item" icon={<BulbOutlined />}>
           <Link to="/news">News</Link>

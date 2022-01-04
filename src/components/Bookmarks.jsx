@@ -31,13 +31,14 @@ const Bookmarks = () => {
   const removeFromBookmarkHandler = (id) => {
     const result = window.confirm("Are You sure to delete this?");
     if (result) {
-      setIsDeleting(true);
+      
       axios
         .delete(
           `https://shielded-headland-90751.herokuapp.com/bookmarks/cryptos/${id}`
         )
         .then((res) => {
           if (res.data.deletedCount) {
+            setIsDeleting(true);
             notify("info", "Delete Successfull");
           }
         });

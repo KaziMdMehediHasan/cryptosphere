@@ -3,19 +3,18 @@ import axios from "axios";
 import millify from "millify";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../hooks/useAuth";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Loader from "./Loader";
 
-toast.configure();
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState();
   const [searchTerm, setSearchTerm] = useState("");
-  const { user } = useAuth();
+
+  // sakawat added this new state
+  const { user, notify } = useAuth();
 
   useEffect(() => {
     setCryptos(cryptosList?.data?.coins);
@@ -27,18 +26,7 @@ const Cryptocurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
-  //  sakawat starts
-  const notify = () => {
-    toast.info("Bookmark Added", {
-      position: "top-right",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
+  // sakawat starts here
   const addToBookmarkHandler = (currency) => {
     const newCrypto = { ...currency };
     newCrypto.email = user?.email;
@@ -51,7 +39,7 @@ const Cryptocurrencies = ({ simplified }) => {
       .then(
         (res) => {
           if (res.data.insertedId) {
-            notify();
+            notify("info", "Added to bookmarks");
           }
         },
         (error) => {
@@ -95,20 +83,26 @@ const Cryptocurrencies = ({ simplified }) => {
               </Card>
             </Link>
             {/* sakawat starts */}
-            <button
+            <div
               style={{
-                backgroundColor: "green",
-                color: "#fff",
-                padding: "0.4rem 1rem",
-                margin: "1rem",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
+                textAlign: "center",
               }}
-              onClick={() => addToBookmarkHandler(currency)}
             >
-              add to bookmark
-            </button>
+              <button
+                style={{
+                  backgroundColor: "green",
+                  color: "#fff",
+                  padding: "0.4rem 0.7rem",
+                  margin: "1rem",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                }}
+                onClick={() => addToBookmarkHandler(currency)}
+              >
+                Add to bookmark
+              </button>
+            </div>
             {/* sakawat ends */}
           </Col>
         ))}

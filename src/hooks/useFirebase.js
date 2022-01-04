@@ -20,8 +20,8 @@ const useFirebase = () => {
 
   // Showing notification after logout
 
-  const notify = () => {
-    toast.success("Logout Successfull!", {
+  const notify = (type, msg) => {
+    toast[type](msg, {
       position: "top-right",
       autoClose: 4000,
       hideProgressBar: false,
@@ -38,7 +38,7 @@ const useFirebase = () => {
 
   const logOut = () => {
     signOut(auth).then(() => {
-      notify();
+      notify("success", "Logout Successfull");
       setUser({});
     });
   };
@@ -58,6 +58,7 @@ const useFirebase = () => {
     user,
     signInUsingGoogle,
     logOut,
+    notify,
   };
 };
 

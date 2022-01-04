@@ -31,9 +31,9 @@ const App = () => {
                 <Route path="/login">
                   <Login />
                 </Route>
-                <Route exact path="/bookmarks">
+                <PrivateRoute exact path="/bookmarks">
                   <Bookmarks />
-                </Route>
+                </PrivateRoute>
                 <PrivateRoute exact path="/cryptocurrencies">
                   <Cryptocurrencies />
                 </PrivateRoute>

@@ -3,14 +3,11 @@ import axios from "axios";
 import millify from "millify";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../hooks/useAuth";
 import Loader from "./Loader";
 
-toast.configure();
 const Bookmarks = () => {
-  const { user } = useAuth();
+  const { user, notify } = useAuth();
   const [isLoading, setIsLoading] = useState("false");
   const [cryptos, setCryptos] = useState([]);
   const [deleting, setIsDeleting] = useState(false);
@@ -30,18 +27,6 @@ const Bookmarks = () => {
   }, [deleting]);
   //
 
-  // notify after deleting bookmark
-  const notify = () => {
-    toast.info("Bookmark Removed", {
-      position: "top-right",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
   // remove from bookmark
   const removeFromBookmarkHandler = (id) => {
     const result = window.confirm("Are You sure to delete this?");
@@ -53,7 +38,7 @@ const Bookmarks = () => {
         )
         .then((res) => {
           if (res.data.deletedCount) {
-            notify();
+            notify("info", "Delete Successfull");
           }
         });
     }
@@ -100,20 +85,24 @@ const Bookmarks = () => {
                         </Card>
                       </Link>
 
-                      <button
-                        style={{
-                          backgroundColor: "rgba(180,30,30,0.7)",
-                          color: "#fff",
-                          padding: "0.4rem 1rem",
-                          margin: "1rem",
-                          border: "none",
-                          borderRadius: "5px",
-                          cursor: "pointer",
-                        }}
-                        onClick={() => removeFromBookmarkHandler(currency._id)}
-                      >
-                        Delete
-                      </button>
+                      <div style={{ textAlign: "center" }}>
+                        <button
+                          style={{
+                            backgroundColor: "rgba(180,30,30,0.7)",
+                            color: "#fff",
+                            padding: "0.4rem 1rem",
+                            margin: "1rem",
+                            border: "none",
+                            borderRadius: "5px",
+                            cursor: "pointer",
+                          }}
+                          onClick={() =>
+                            removeFromBookmarkHandler(currency._id)
+                          }
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </Col>
                   ))}
                 </Row>

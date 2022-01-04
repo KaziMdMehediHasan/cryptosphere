@@ -49,14 +49,21 @@ const Bookmarks = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div style={{ width: "80%", margin: "5vmax auto" }}>
+        <div style={{ width: "80%", margin: "3vmax auto" }}>
           {cryptos.length === 0 ? (
             <p>Current you don't have any bookmarks</p>
           ) : (
             cryptos && (
               <>
-                <h2 style={{ color: "gray", fontWeight: "bold" }}>
-                  Your crypto bookmarks
+                <h2
+                  style={{
+                    color: "gray",
+                    fontWeight: "bold",
+                    fontSize: "1.3rem",
+                    marginBottom: "1.5rem",
+                  }}
+                >
+                  Your Cryptocurrency Bookmarks
                 </h2>
                 <Row gutter={[32, 32]} className="crypto-card-container">
                   {cryptos?.map((currency) => (

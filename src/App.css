@@ -119,15 +119,6 @@ a:hover {
   background-color: rgba(200, 60, 60, 0.7);
 }
 
-/* sakawat start */
-.crypto_bookmark {
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
-  padding: 5rem;
-  margin: 2rem;
-}
-/* sakawat end */
-
 @media screen and (max-width: 1300px) {
   .main {
     margin-left: 50px;

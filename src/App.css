@@ -81,6 +81,51 @@ a:hover{
 
 /* end of navbar menu styles */
 
+/* Sakawat start*/
+.user_avatar {
+    position: fixed;
+    right: 2%;
+    top: 4%;
+    cursor: pointer;
+  }
+  .user_img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid hidden;
+    border-radius: 50%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .login_btn {
+    background-color: rgba(60, 200, 60, 0.9);
+    display: block;
+    margin: 21vmax auto 0;
+    padding: 1.1rem 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .logout_btn {
+    display: block;
+    margin: 21vmax auto 0;
+    background-color: rgba(200, 60, 60, 0.9);
+    padding: 1.1rem 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .login_btn:hover {
+    background-color: rgba(60, 200, 60, 0.6);
+  }
+  .logout_btn:hover {
+    background-color: rgba(200, 60, 60, 0.7);
+  }
+  /*  sakawat end*/
+
 .loader{
     height: 81vh;
     display: flex;
@@ -107,6 +152,28 @@ a:hover{
 }
 
 @media screen and (max-width:800px){
+     /* sakawat start */
+
+  .logout_btn {
+    margin: 1rem auto;
+  }
+  .login_btn {
+    margin: 1rem auto;
+  }
+  .user_avatar {
+    position: fixed;
+    right: 2%;
+    top: 17%;
+  }
+  .user_img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid hidden;
+    border-radius: 50%;
+    width: 100%;
+    overflow: hidden;
+  }
+  /* sakawat end */
     .app{
         flex-direction: column;
         overflow: hidden;

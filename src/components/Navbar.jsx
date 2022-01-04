@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
 
 import icon from '../images/cryptocurrency.png';
+import useAuth from '../hooks/useAuth';
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(undefined);
+  const {user, logOut} = useAuth();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -48,6 +50,15 @@ const Navbar = () => {
         <Menu.Item className="custom-menu-item" icon={<BulbOutlined />}>
           <Link to="/news">News</Link>
         </Menu.Item>
+        {user.email ? (
+              <button className="logout_btn" onClick={logOut}>
+                Logout
+              </button>
+            ) : (
+              <Link to="/login">
+                <button className="login_btn">Login</button>
+              </Link>
+            )}
       </Menu>
       )}
     </div>

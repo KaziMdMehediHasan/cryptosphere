@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Cryptosphere Create With React Js, Redux Js, Firebase Authentication And rapidApi.
+
+## Vertical Navigation In left Side
+
+- Home
+- Cryptocurrencies
+- Bookmarks
+- News
+- Login Button
+
+# In Home Page
+
+- We displayed market summery for currencies.
+- After Summury Section We displayed Top 10 crypto currencies in card, and put a show more button in right side.
+- A user mush have to login to see more then 50 crypto currencies with information
+- In home page We showed crypo currencies latest news.
+- A user must have login to access Crypto-currencies, BookMark and News
+
+# Login System
+
+- We implement Login System With Google Firbase Authentication.
+- A user could be visit currencies graph chart, and other information
+- A user can search currencies with writing currency name.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,4 +90,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # cryptosphere

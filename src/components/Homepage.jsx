@@ -11,6 +11,7 @@ import UserAvatar from './UserAvatar';
 const { Title } = Typography;
 
 const Homepage = () => {
+  // to show top 10 cryptocurrency
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
@@ -31,6 +32,7 @@ const Homepage = () => {
     <>
       <Title level={2} className="heading">Global Crypto Stats</Title>
       <Row gutter={[32, 32]}>
+        {/* static columns on the top of the site */}
         <Col span={12}>
           <Statistic 
           style={plateStyles}
@@ -67,12 +69,15 @@ const Homepage = () => {
           title="Total Markets" 
           value={millify(globalStats.totalMarkets)} />
         </Col>
+        {/*end of static columns on the top of the site */}
       </Row>
+      {/* top 10 cryptocurrencies start */}
       <div className="home-heading-container">
         <Title level={2} className="home-title">Top 10 Cryptos In The World</Title>
         <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
       </div>
       <Cryptocurrencies simplified />
+       {/* end of top 10 cryptocurrencies */}
       <div className="home-heading-container">
         <Title level={2} className="home-title">Latest Crypto News</Title>
         <Title level={3}><Link to="/news">Show more</Link></Title>
